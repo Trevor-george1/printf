@@ -9,6 +9,6 @@ int print_char(va_list args, int printed)
 {
 	int c = va_arg(args, int);
 
-	putchar(c);
+	_putchar(c);
 	return (printed + 1);
 }
