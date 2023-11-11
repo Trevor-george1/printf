@@ -6,66 +6,30 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	va_list ap;
+	int printed = 0;
+	va_list args;
 
 	/** check if format string is empty*/
 	if (format == NULL)
 		return (-1);
-
-	va_start(ap, format);
-	
+	va_start(args, format);
 	/** otherwise loop throught the format string*/
-	while (*format)
+	while (*format != '\0')
 	{
-		count = 0;
-		/** print out the string if % is not reached*/
-		if (*format != '%')
+		if (*format == '%')
 		{
-			write(1, format, 1);
-			count++;
+			format++;
+			printed = selector(format, args, printed);
+			format++;
 		}
 		else
 		{
-			format++; /** move to next character if % reached*/
-
-		if (*format == '\0')/**reached the end of string*/
-			break;
-
-		/** heandle the %*/
-		if (*format == '%')
-		{
-			write(1, format, 1);
-			count++;
+			putchar(*format);
+			printed++;
+			format++;
 		}
-
-		/** handle c*/
-		else if (*format == 'c')
-		{
-			char a = va_arg(ap, int);
-
-			write(1, &a, 1);
-			count++;
-		}
-
-		/**handle s*/
-		else if (*format == 's')
-		{
-			char *s = va_arg(ap, char *);
-			int s_len = 0;
-
-			while (s[s_len] != '\0')
-			{
-				s_len++;
-			}
-
-			write(1, s, s_len);
-			count += s_len;
-		}
-		}
-		format++;
 	}
-	va_end(ap);
+	va_end(args);
 
-	return (count);
+	return (printed);
 }
