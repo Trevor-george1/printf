@@ -28,6 +28,18 @@ int selector(const char *format, va_list args)
 		case 'b':
 			printed += print_binary(va_arg(args, unsigned int));
 			break;
+		case 'u':
+			printed += print_unsigned_(args);
+			break;
+		case 'o':
+			printed += print_oct(args);
+			break;
+		case 'x':
+			printed += print_unsigned_hex(args);
+			break;
+		case 'X':
+			printed += print_unsigned_hex_upper(args);
+			break;
 		default:
 			break;
 	}
