@@ -25,7 +25,7 @@ int print_binary(unsigned int num)
 	while (i > 0)
 	{
 		i--;
-		_putchar('0' + binary[i]);
+		_putchar('0' + bin[i]);
 		printed++;
 	}
 	return (printed);
