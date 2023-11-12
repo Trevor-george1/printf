@@ -3,22 +3,30 @@
  * selector - selects the right function to perfrom
  * @format: pointer to string of format
  * @args: number of arguments
- * @printed: number of printed  char
  * Return: printed characters
  */
-int selector(const char *format, va_list args, int printed)
+int selector(const char *format, va_list args)
 {
+	int printed = 0;
+
 	switch (*format)
 	{
+		case 'd':
+		case 'i':
+			printed += print_int(args);
+			break;
 		case 'c':
-			printed = print_char(args, printed);
+			printed += print_char(args);
 			break;
 		case 's':
-			printed = print_string(args, printed);
+			printed += print_string(args);
 			break;
 		case '%':
 			write(1, format, 1);
 			printed++;
+			break;
+		cas 'b' :
+			printed += print_binary(va_arg(args, unsigned int));
 			break;
 		default:
 			break;
