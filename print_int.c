@@ -31,5 +31,5 @@ int print_int(va_list args)
 		num %= div;
 		div /= 10;
 	}
-	return (1);
+	return (printed);
 }
