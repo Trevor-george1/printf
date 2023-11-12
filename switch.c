@@ -23,7 +23,7 @@ int selector(const char *format, va_list args)
 			break;
 		case '%':
 			write(1, format, 1);
-			return (1);
+			printed++;
 			break;
 		case 'b':
 			printed += print_binary(va_arg(args, unsigned int));
