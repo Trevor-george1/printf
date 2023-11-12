@@ -13,7 +13,7 @@ int print_int(va_list args)
 
 	if (num < 0)
 	{
-		_putchar('-');
+		write(1, '-'. 1);
 		printed++;
 		num = -num;
 	}
@@ -31,5 +31,5 @@ int print_int(va_list args)
 		num %= div;
 		div /= 10;
 	}
-	return (printed);
+	return (1);
 }
