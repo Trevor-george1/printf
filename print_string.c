@@ -30,9 +30,6 @@ int print_string(va_list args)
  */
 int print_string_S(va_list args)
 {
-	va_list args_copy;
-
-	va_copy(args_copy, args);
 	int printed = 0;
 	char *s = va_arg(args, char *);
 
@@ -62,6 +59,6 @@ int print_string_S(va_list args)
 			printed += 1;
 		}
 	}
-	va_end(args_copy);
+	va_end(args);
 	return (printed);
 }
