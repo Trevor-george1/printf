@@ -3,7 +3,7 @@
  * print_p - prints a  pointer
  * @args: arguments
  * Return: printed
- */
+ 
 int print_p(va_list args)
 {
 	void *ptr = va_arg(args, void *);
@@ -28,4 +28,4 @@ int print_p(va_list args)
 	write(1, hex_buffer, strlen(hex_buffer));
 
 	return (strlen(hex_buffer));
-}
+}*/
