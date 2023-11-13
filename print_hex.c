@@ -1,53 +1,24 @@
 #include "main.h"
 /**
- * print_hex - prints an octal number
- * @arg: arguments
- * @uppercase: upper
+ * print_hex - print hexa
+ * @args: arguments
+ * @uppercase: uper
  * Return: printed
  */
-int print_hex(va_list arg, int uppercase)
+int print_hex(va_list args, int uppercase)
 {
-	unsigned int value = va_arg(arg, unsigned int);
-	char hex_digit[8];
-	int count = 0, digit;
+	unsigned int value = va_arg(args, unsigned int);
+	char hex_buff[12];
+	char *hex_str;
 
-	if (value == 0)
+	snprintf(hex_buff, sizeof(hex_buff), uppercase ? "%X" : "%x", value);
+	hex_str = strdup(hex_buff);
+	if (hex_str == NULL)
 	{
-		write(1, "0", 1);
-		count++;
+		return (0);
 	}
-	while (value > 0)
-	{
-		digit = value % 16;
-		hex_digit[count] = digit < 10 ? '0' + digit :
-		(uppercase ? 'A' : 'a') + digit - 10;
-		value /= 16;
-		count++;
-	}
-	while (count > 0)
-	{
-		count--;
-		write(1, &hex_digit[count], 1);
-	}
-	return (count);
+	write(1, hex_str, strlen(hex_str));
+	free(hex_str);
+	return (strlen(hex_str));
 }
 
-/**
- * print_unsigned_hex - prints unsiged hex
- * @arg: argumnets
- * Return: count
- */
-int print_unsigned_hex(va_list arg)
-{
-	return (print_hex(arg, 0));
-}
-
-/**
- * print_unsigned_hex_upper - prints hex in upper
- * @arg: arguments
- * Return: count
- */
-int print_unsigned_hex_upper(va_list arg)
-{
-	return (print_hex(arg, 1));
-}
