@@ -49,7 +49,7 @@ int print_string_S(va_list args)
 			s_buff[3] = (s[printed] % 16) + (s[printed] % 16 > 9 ? 'A' - 10 : '0');
 			s_buff[4] = '\0';
 
-			write(1, s_buff, _strlen(s_buff));
+			write(1, s_buff, strlen(s_buff));
 			printed += 1;
 			free(s_buff);
 		}
