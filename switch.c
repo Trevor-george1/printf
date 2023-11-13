@@ -22,7 +22,7 @@ int selector(const char *format, va_list args)
 			printed += print_string(args);
 			break;
 		case '%':
-			write(1, format, 1);
+			write(1, "%", 1);
 			printed++;
 			break;
 		case 'b':
@@ -39,6 +39,9 @@ int selector(const char *format, va_list args)
 			break;
 		case 'X':
 			printed += print_unsigned_hex_upper(args);
+			break;
+		case 'S':
+			printed += print_string_S(args);
 			break;
 		default:
 			break;
