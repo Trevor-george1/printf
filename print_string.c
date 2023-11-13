@@ -32,7 +32,7 @@ int print_string_S(va_list args)
 {
 	int printed = 0;
 	char *s = va_arg(args, char *);
-	char *s_buff[5]; /**to hanlde // x and two hexa numbers and null char*/
+	char s_buff[5]; /**to hanlde // x and two hexa numbers and null char*/
 
 	while (s[printed])
 	{
@@ -42,7 +42,7 @@ int print_string_S(va_list args)
 			s_buff[1] = 'x';
 			s_buff[2] = (s[printed] / 16) + (s[printed] / 16 > 9 ? 'A' - 10 : '0');
 			s_buff[3] = (s[printed] % 16) + (s[printed] % 16 > 9 ? 'A' - 10 : '0');
-			s_buff = '\0';
+			s_buff[4] = '\0';
 
 			write(1, s_buff, strlen(s_buff));
 			printed += 1;
