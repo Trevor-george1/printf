@@ -17,6 +17,6 @@ int print_hex(va_list arg, int uppercase);
 int print_unsigned_hex(va_list arg);
 int print_unsigned_hex_upper(va_list arg);
 int print_string_S(va_list args);
-int _strlen(va_list args);
+int print_p(va_list args);
 int selector(const char *format, va_list args);
 #endif
