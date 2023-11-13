@@ -8,12 +8,18 @@ int print_string(va_list args)
 {
 	int printed = 0;
 	char *s = va_arg(args, char *);
+	char *s_buff = strdup(s);
 
-	while (*s != '\0')
+	if (s_buff == NULL)
 	{
-		write(1, s, 1);
-		printed++;
-		s++;
+		return (0);
 	}
+
+	while (s_buff[printed])
+	{
+		write(1, &s_buff[printed], 1);
+		printed++;
+	}
+	free(s_buff);
 	return (printed);
 }
