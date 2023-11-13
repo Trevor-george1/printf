@@ -61,19 +61,3 @@ int print_string_S(va_list args)
 	}
 	return (printed);
 }
-/**
- * _strlen - function that finds length of string
- * @c: string
- * Return: length
- */
-int _strlen(char *c)
-{
-	int i = 0;
-
-	while (*c != '\0')
-	{
-		i++;
-		c++;
-	}
-	return (i);
-}
