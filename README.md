@@ -1,1 +1,1 @@
-Printf project collaborated by Trevor and Opeyemi
+AUTHOR: Trevor George Mahinda
