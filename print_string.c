@@ -23,3 +23,35 @@ int print_string(va_list args)
 	free(s_buff);
 	return (printed);
 }
+/**
+ * print_string_S - handles cunstom specifire s
+ * @args: arguments
+ * Return: prined chars
+ */
+int print_string_S(va_list args)
+{
+	int printed = 0;
+	char *s = va_arg(args, char *);
+	char *s_buff[5]; /**to hanlde // x and two hexa numbers and null char*/
+
+	while (s[printed])
+	{
+		if (s[printed] < 32 || s[printed] >= 127)
+		{
+			s_buff[0] = '\\';
+			s_buff[1] = 'x';
+			s_buff[2] = (s[printed] / 16) + (s[printed] / 16 > 9 ? 'A' - 10 : '0');
+			s_buff[3] = (s[printed] % 16) + (s[printed] % 16 > 9 ? 'A' - 10 : '0');
+			s_buff = '\0';
+
+			write(1, s_buff, strlen(s_buff));
+			printed += 1;
+		}
+		else
+		{
+			write(1, &s[printed], 1);
+			printed += 1;
+		}
+	}
+	return (printed);
+}
