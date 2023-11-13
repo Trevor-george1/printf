@@ -32,12 +32,17 @@ int print_string_S(va_list args)
 {
 	int printed = 0;
 	char *s = va_arg(args, char *);
-	char s_buff[5]; /**to hanlde // x and two hexa numbers and null char*/
 
 	while (s[printed])
 	{
 		if (s[printed] < 32 || s[printed] >= 127)
 		{
+			char *s_buff = (char *)malloc(5);
+
+			if (s_buff == NULL)
+			{
+				return (0);
+			}
 			s_buff[0] = '\\';
 			s_buff[1] = 'x';
 			s_buff[2] = (s[printed] / 16) + (s[printed] / 16 > 9 ? 'A' - 10 : '0');
