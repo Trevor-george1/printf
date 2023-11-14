@@ -6,7 +6,7 @@
  * @flags: flag
  * Return: printed characters
  */
-int selector(const char *format, va_list args, int flags)
+int selector(const char *format, va_list args)
 {
 	int printed = 0;
 
@@ -17,10 +17,10 @@ int selector(const char *format, va_list args, int flags)
 			printed += print_int(args);
 			break;
 		case 'c':
-			printed += print_char(args, flags);
+			printed += print_char(args);
 			break;
 		case 's':
-			printed += print_string(args, flags);
+			printed += print_string(args);
 			break;
 		case '%':
 			write(1, "%", 1);

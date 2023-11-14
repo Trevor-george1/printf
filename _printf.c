@@ -8,44 +8,25 @@ int _printf(const char *format, ...)
 {
 	int printed = 0;
 	va_list args;
-	va_start(args, fomrat;)
-	const char *current = format;
 
 	/** check if format string is empty*/
-	if (curret == NULL)
+	if (format == NULL)
 		return (-1);
+	va_start(args, format);
 	/** otherwise loop throught the format string*/
-	while (*current)
+	while (*format)
 	{
-		if (*current == '%')
+		if (*format == '%')
 		{
-			current++;
-
-			int flags = 0;
-			while (current == '+' || *current == ' ' || *current == '#')
-			{
-				if (*current == '+')
-				{
-					flags |= 1;
-				}
-				else if (*current == ' ')
-				{
-					flags |= 2;
-				}
-				else if (*current == '#')
-				{
-					flags |= 4;
-				}
-				current++;
-			}
+			format++;
 			printed += selector(format, args);
 		}
 		else
 		{
-			write(1, current, 1);
+			write(1, format, 1);
 			printed++;
 		}
-		current++;
+		format++;
 	}
 	va_end(args);
 

@@ -2,10 +2,9 @@
 /**
  * print_char - print char
  * @args: arguments
- * @flags: flag
  * Return: printed
  */
-int print_char(va_list args, int flags)
+int print_char(va_list args)
 {
 	char c = va_arg(args, int);
 	char *char_buff = (char *)malloc(2);

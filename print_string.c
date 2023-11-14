@@ -2,10 +2,9 @@
 /**
  * print_string - prints a string
  * @args: number of args
- * @flags: flag
  * Return: printed chars
  */
-int print_string(va_list args, int flags)
+int print_string(va_list args)
 {
 	int printed = 0;
 	char *s = va_arg(args, char *);
