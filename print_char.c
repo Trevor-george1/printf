@@ -4,7 +4,7 @@
  * @args: arguments
  * Return: printed
  */
-int print_char(va_list args)
+int print_char(va_list args, int flags)
 {
 	char c = va_arg(args, int);
 	char *char_buff = (char *)malloc(2);

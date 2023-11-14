@@ -5,7 +5,7 @@
  * @args: number of arguments
  * Return: printed characters
  */
-int selector(const char *format, va_list args)
+int selector(const char *format, va_list args, int flags)
 {
 	int printed = 0;
 
@@ -16,10 +16,10 @@ int selector(const char *format, va_list args)
 			printed += print_int(args);
 			break;
 		case 'c':
-			printed += print_char(args);
+			printed += print_char(args, flags);
 			break;
 		case 's':
-			printed += print_string(args);
+			printed += print_string(args, flags);
 			break;
 		case '%':
 			write(1, "%", 1);

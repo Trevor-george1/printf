@@ -4,7 +4,7 @@
  * @args: number of args
  * Return: printed chars
  */
-int print_string(va_list args)
+int print_string(va_list args, int flags)
 {
 	int printed = 0;
 	char *s = va_arg(args, char *);
