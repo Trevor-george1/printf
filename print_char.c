@@ -2,6 +2,7 @@
 /**
  * print_char - print char
  * @args: arguments
+ * @flags: flag
  * Return: printed
  */
 int print_char(va_list args, int flags)

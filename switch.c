@@ -3,6 +3,7 @@
  * selector - selects the right function to perfrom
  * @format: pointer to string of format
  * @args: number of arguments
+ * @flags: flag
  * Return: printed characters
  */
 int selector(const char *format, va_list args, int flags)
