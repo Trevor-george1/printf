@@ -46,6 +46,9 @@ int selector(const char *format, va_list args)
 		case 'p':
 			printed += print_p(args);
 			break;
+		case 'r':
+			printed += print_string(args);
+			break;
 		default:
 			break;
 	}
