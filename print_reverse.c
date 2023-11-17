@@ -6,23 +6,19 @@
  */
 int print_reverse(va_list args)
 {
+	int printed = 0;
 	int len = 0, i;
-	char *new;
 
 	char *s = va_arg(args, char *);
 
-	len = strlen(s);
-	new = malloc(len + 1);
-	if (new == NULL)
+	while (s[len])
 	{
-		return (0);
+		len++;
 	}
-	for (i = 0; i < len; i++)
+	for (i = len - 1; i >= 0; i--)
 	{
-		new[i] = s[len - 1 - i];
+		_putchar(s[i]);
+		printed++;
 	}
-	new[i] = '\0';
-	write(1, new, len);
-	free(new);
-	return (len);
+	return (printed);
 }
